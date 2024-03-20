@@ -42,7 +42,11 @@ class Rcl_Field_Checkbox extends Rcl_Field_Abstract {
 			return false;
 		}
 
-		return implode( ', ', $this->value );
+		if ( is_array( $this->value ) ) {
+			return implode( ', ', $this->value );
+		} else {
+			return $this->value;
+		}
 	}
 
 	function get_filter_value() {
